@@ -13,4 +13,10 @@ class Task extends Model
 
     //defines which attributes (or columns) of the model are mass assignable
     protected $fillable = ['title', 'description', 'long_description'];
+
+    public function toggleComplete()
+    {
+        $this->completed = !$this->completed;
+        $this->save();
+    }
 }
